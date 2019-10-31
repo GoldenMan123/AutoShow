@@ -2,14 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>
+<hibernate-mapping auto-import="true" default-lazy="false">
 	<class name="logic.Colour" table="Colour">
-		<id column="colour_id" name="id" type="java.lang.Integer">
+		<id column="id" name="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
 		<property column="colour" name="colour" type="java.lang.String"/>
 		
-		<set name="cars" lazy="true">
+		<set name="cars" lazy="false">
 			<key column="colour_id"/>
 			<one-to-many class="logic.Car"/>
 		</set>

@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.Country" table="Country">
 		<id column="country_id" name="id" type="java.lang.Integer">
 			<generator class="increment"/>
@@ -13,7 +13,6 @@
 			<key column="country_id"/>
 			<one-to-many class="logic.City"/>
 		</set>
-				
 		<set name="manufacturers" lazy="false">
 			<key column="country_id"/>
 			<one-to-many class="logic.Manufacturer"/>

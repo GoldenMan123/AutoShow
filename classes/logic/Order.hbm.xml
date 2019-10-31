@@ -2,14 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.Order" table="Orders">
 		<id column="number" name="number" type="java.lang.Long">
 			<generator class="increment"/>
 		</id>
 		
-		<property column="date" name="date" type="java.text.SimpleDateFormat"/>
+		<property column="date" name="date" type="java.util.Date"/>
 		<property column="test_drive" name="testdrive" type="java.lang.Boolean"/>
 		<property column="status_id" name="status" type="java.lang.Integer"/>
+		<property column="client_id" name="clientId" type="java.lang.Long"/>
+		<property column="car_id" name="carId" type="java.lang.Long"/>
 	</class>
 </hibernate-mapping>

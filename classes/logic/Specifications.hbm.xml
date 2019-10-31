@@ -2,18 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.Specifications" table="Specifications">
-		<id column="car_id" name="car_id" type="java.lang.Long">
-			<generator class="foreign">
-				<param name="property">car</param>
-			</generator>
+		<id column="car_id" name="carId" type="java.lang.Long">
+			<generator class="increment"/>
 		</id>
 		
-		<property column="automatic_transmission" name="auto_transmission" type="java.lang.Boolean"/>
-		<property column="engine_power" name="engine_power" type="java.lang.Integer"/>
-		<property column="fuel_consumption" name="fuel_consumption" type="java.lang.Double"/>
-		
-		<one-to-one name="car" class="logic.Car" cascade="all"/>
+		<property column="automatic_transmission" name="autoTransmission" type="java.lang.Boolean"/>
+		<property column="engine_power" name="enginePower" type="java.lang.Integer"/>
+		<property column="fuel_consumption" name="fuelConsumption" type="java.lang.Double"/>
 	</class>
 </hibernate-mapping>

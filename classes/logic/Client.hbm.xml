@@ -2,25 +2,25 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.Client" table="Client">
 		<id column="client_id" name="id" type="java.lang.Long">
 			<generator class="increment"/>
 		</id>
-		<property column="first_name" name="first_name" type="java.lang.String"/>
-		<property column="last_name" name="last_name" type="java.lang.String"/>
+		<property column="first_name" name="firstName" type="java.lang.String"/>
+		<property column="last_name" name="lastName" type="java.lang.String"/>
 		<property column="address" name="address" type="java.lang.String"/>
 		<property column="email" name="email" type="java.lang.String"/>
 		<property column="phone_number" name="phone" type="java.lang.String"/>
+		<property column="location" name="location" type="java.lang.Integer"/>
 		
-		<set name="cars_orders" table="Orders" lazy="false">
+		<set name="orders" lazy="false">
 			<key column="client_id"/>
-			<many-to-many column="car_id" class="logic.Car"/>
+			<one-to-many class="logic.Order"/>
 		</set>
-		
-		<set name="cars_testdrives" table="TestDrive" lazy="false">
+		<set name="testdrives" lazy="false">
 			<key column="client_id"/>
-			<many-to-many column="car_id" class="logic.Car"/>
+			<one-to-many class="logic.TestDrive"/>
 		</set>
 	</class>
 </hibernate-mapping>

@@ -37,8 +37,8 @@
 	  	<td>${order.testdrive}</td>
 	  	<td>${order.status}</td>
 	  	<td>
-		  	<form:form modelAttribute="OrderStatus" method="POST" action="test?id=order.number">
-		  		<form:select path="id">
+		  	<form:form modelAttribute="OrderStatus" method="POST" action="test.html?id=${order.number}">
+		  		<form:select path="id" onchange="this.form.submit()">
 					<c:forEach items="${statuses}" var="st">
 						<option value="${st.id}">${st.status}</option>
 					</c:forEach>

@@ -67,17 +67,17 @@ public class AutoShowController {
 	}
 	
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
-	public String getIndex(@RequestParam(value="ord_id", required=true) Long ord_id, 
+	public String getIndex(@RequestParam(value="id", required=true) Long id, 
 			@ModelAttribute("OrderStatus") Status new_st, Model model) {
 		try {
-			Order ord = order.getOrderByNumber(ord_id);
+			Order ord = order.getOrderByNumber(id);
 			ord.setStatus(new_st.getId());
 			order.update(ord);
 		} catch(SQLException ex) {
 			
 		}
 	
-		return "index";
+		return "redirect:index";
 	}
 	
 	@RequestMapping(value = "/clients", method = RequestMethod.GET)

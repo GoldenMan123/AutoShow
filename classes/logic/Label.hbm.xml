@@ -2,14 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.Label" table="Label">
 		<id column="label_id" name="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
 		<property column="name" name="name" type="java.lang.String"/>
+		<property column="facture_id" name="factureId" type="java.lang.Integer"/>
 		
-		<set name="cars" lazy="true">
+		<set name="cars" lazy="false">
 			<key column="label_id"/>
 			<one-to-many class="logic.Car"/>
 		</set>

@@ -2,14 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
-<hibernate-mapping>	
+<hibernate-mapping auto-import="true" default-lazy="false">	
 	<class name="logic.City" table="City">
 		<id column="city_id" name="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
 		<property column="city" name="city" type="java.lang.String"/>
+		<property column="country_id" name="countryId" type="java.lang.Integer"/>
 		
-		<set name="clients" lazy="true">
+		<set name="clients" lazy="false">
 			<key column="location"/>
 			<one-to-many class="logic.Client"/>
 		</set>
